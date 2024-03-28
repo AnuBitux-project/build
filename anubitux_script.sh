@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 3.0 24-Mar-2024
+# Version 3.0.1 28-Mar-2024
 
 # VARIABLES
 VERSION="3.0"
