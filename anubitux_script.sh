@@ -272,7 +272,7 @@ python3 -m pip install bitbox02
 python3 -m pip install safet
 python3 -m pip install ckcc-protocol
 python3 -m pip install pyserial cbor
-cd cd /opt/Tools/Wallets/HW/
+cd /opt/Tools/Wallets/HW/
 git clone https://github.com/AnuBitux/udev
 cp /opt/Tools/Wallets/HW/udev/*.rules /etc/udev/rules.d
 groupadd plugdev
