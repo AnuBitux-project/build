@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 3.0.1 28-Mar-2024
+# Version 3.2 07-Apr-2024
 
 # VARIABLES
 SPARROW="1.8.4"
@@ -28,6 +28,8 @@ BITWARDEN="2024.3.0"
 BCVAULT="setup_2.0.7"
 MONEROCLI="0.18.3.2"
 FIRO="4.1.5.3"
+TONKEEPER="3.9.3"
+TONKEEPER2="_3.9.3_amd64"
 
 # COLORS
 RED='\033[0;31m'
@@ -157,6 +159,11 @@ wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+do
 wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Debian-12-amd64.deb
 sudo dpkg -i veracrypt*
 rm -rf veracrypt*
+
+# TonKeeper
+wget --user-agent="Mozilla" https://github.com/tonkeeper/tonkeeper-web/releases/download/v$TONKEEPER/tonkeeper$TONKEEPER2.deb
+dpkg -i tonkeeper*
+rm -rf tonkeeper*
 
 # Just in case something went wrong
 apt --fix-broken install
