@@ -30,6 +30,8 @@ MONEROCLI="0.18.3.3"
 FIRO="4.1.5.3"
 TONKEEPER="3.9.3"
 TONKEEPER2="_3.9.3_amd64"
+GUARDA="1.0.20"
+GUARDA2="1.0.20_amd64"
 
 # COLORS
 RED='\033[0;31m'
@@ -164,6 +166,10 @@ rm -rf veracrypt*
 wget --user-agent="Mozilla" https://github.com/tonkeeper/tonkeeper-web/releases/download/v$TONKEEPER/tonkeeper$TONKEEPER2.deb
 dpkg -i tonkeeper*
 rm -rf tonkeeper*
+
+wget --user-agent="Mozilla" https://github.com/guardaco/guarda-desktop-releases/releases/download/v$GUARDA/Guarda_$GUARDA2.deb
+dpkg -i Guarda*
+rm -rf Guarda*
 
 # Just in case something went wrong
 apt --fix-broken install
