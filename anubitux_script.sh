@@ -140,7 +140,7 @@ sudo make install
 cd ..
 rm -rf kalitorify
 
-# exodus
+# Exodus
 wget --user-agent="Mozilla" https://downloads.exodus.com/releases/exodus-linux-x64-$EXODUS.deb
 sudo dpkg -i exodus*
 rm -rf exodus*
@@ -174,7 +174,7 @@ rm -rf Guarda*
 # Just in case something went wrong
 apt --fix-broken install
 
-# GitHub Tools
+# Folders
 cd /opt
 mkdir Tools
 cd Tools
@@ -230,6 +230,34 @@ cd /opt/Tools/WalletGen/
 git clone https://github.com/AnuBitux/LastWord
 cd LastWord
 virtualenv lwve
+
+# Mic2Paper
+cd /opt/Tools/WalletGen/
+git clone https://github.com/AnuBitux/Mic2Paper
+cd Mic2Paper
+virtualenv mpve
+source mpve/bin/activate
+pip3 install -r requirements.txt
+deactivate
+
+# Mic2Seed
+cd /opt/Tools/WalletGen/
+git clone https://github.com/AnuBitux/Mic2Seed
+cd Mic2Seed
+virtualenv msve
+source msve/bin/activate
+pip3 install -r requirements.txt
+deactivate
+
+# MicCheck
+cd /opt/Tools/WalletGen/
+git clone https://github.com/AnuBitux/MicCheck
+cd MicCheck
+virtualenv mcve
+source mcve/bin/activate
+pip3 install -r requirements.txt
+deactivate
+chmod +x play_audio.sh
 
 # btcrecover
 cd /opt/Tools/Recovery
@@ -347,9 +375,9 @@ git clone https://github.com/pointbiz/bitaddress.org
 git clone https://github.com/litecoin-project/liteaddress.org
 git clone https://github.com/JollyMort/monero-wallet-generator
 wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
-tar -xf monero-linux*
-rm -rf monero-linux
-mv monero-x86_64* monero-cli
+tar -xf monero-linux-x*
+rm -rf monero-linux-x*
+mv monero-x* monero-cli
 git clone https://github.com/dashpay/paper.dash.org
 cd /opt/Tools/Privacy/
 git clone https://github.com/ASeriousMister/passgen.py
