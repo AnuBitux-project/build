@@ -387,6 +387,9 @@ git clone https://github.com/jlopp/xpub-converter
 git clone https://github.com/BitcoinQnA/seedtool
 git clone https://github.com/luigi1111/xmr.llcoins.net
 git clone https://github.com/OutCast3k/coinbin/
+cd /opt/Tools/Recovery
+git clone https://github.com/bitpay/copay-recovery
+git clone https://github.com/digitalbitbox/bitbox02-backup-recovery
 
 # Getting uSeful AnuBitux scripts 
 cd /opt/
