@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Version 3.3 01-May-2024
+# Version 3.4 11-May-2024
 
 # VARIABLES
 SPARROW="1.9.0"
-EXODUS="24.17.5"
+EXODUS="24.19.4"
 ATOMIC="2.76.14"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
@@ -12,24 +12,24 @@ VERACRYPT="1.26.7"
 BITBOX="4.42.0"
 BITBOX2="4.42.0_amd64"
 ELECTRUM="4.5.4"
-ELECTRON="4.4.0"
+ELECTRON="4.4.1"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.4"
+GREEN="2.0.5"
 FEATHER="2.6.7"
 MYMONERO="1.3.2"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
 TREZOR="24.4.3"
-KEEPKEY="3.0.11"
+KEEPKEY="3.0.13"
 COINOMI="1.3.0"
 TORBROWSER="13.0.14"
 TORBROWSER2="13.0.14_ALL"
-BITWARDEN="2024.4.1"
+BITWARDEN="2024.4.3"
 BCVAULT="setup_2.2.0"
 MONEROCLI="0.18.3.3"
 FIRO="4.1.5.3"
-TONKEEPER="3.9.5"
-TONKEEPER2="_3.9.5_amd64"
+TONKEEPER="3.12.1"
+TONKEEPER2="_3.12.1_amd64"
 GUARDA="1.0.20"
 GUARDA2="1.0.20_amd64"
 
@@ -38,7 +38,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 apt update
-apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git python3-pip libsecp256k1-1 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-b43-installer firmware-realtek firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer firmware-sof-signed mesa-va-drivers i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils gtkhash firmware-realtek-rtl8723cs-bt eog libwxgtk3.2-1 bash-completion obsidian-icon-theme figlet papirus-icon-theme gir1.2-gtop-2.0 system-config-printer libsecp256k1-dev zip user-setup system-config-printer simplescreenrecorder gnome-sound-recorder portaudio19-dev mpg123
+apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git libsecp256k1-1 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-b43-installer firmware-realtek firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer firmware-sof-signed mesa-va-drivers i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils gtkhash firmware-realtek-rtl8723cs-bt eog libwxgtk3.2-1 bash-completion obsidian-icon-theme figlet papirus-icon-theme gir1.2-gtop-2.0 system-config-printer libsecp256k1-dev zip user-setup system-config-printer simplescreenrecorder gnome-sound-recorder portaudio19-dev mpg123 terminator libsecp256k1-dev protobuf-compiler
 
 apt -y --purge remove libreoffice-math libreoffice-draw apache2-bin
 apt -y --purge autoremove
@@ -259,6 +259,15 @@ pip3 install -r requirements.txt
 deactivate
 chmod +x play_audio.sh
 
+# BlindGen
+cd /opt/Tools/WalletGen/
+git clone https://github.com/AnuBitux/BlindGen
+cd BlindGen
+virtualenv bgve
+source bgve/bin/activate
+pip3 install -r requirements.txt
+deactivate
+
 # btcrecover
 cd /opt/Tools/Recovery
 git clone https://github.com/AnuBitux/btcrecover
@@ -344,6 +353,10 @@ rm -rf coinomi-wallet-$COINOMI-linux64.tar.gz
 wget --user-agent="Mozilla" https://github.com/firoorg/electrum-firo/releases/download/$FIRO/Firo-Electrum-$FIRO-x86_64.AppImage
 mv Firo-* electrum-firo.AppImage
 chmod -R +x *
+wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
+tar -xf monero-linux-x*
+rm -rf monero-linux-x*
+mv monero-x* monero-cli
 
 # hardware wallets clients
 cd HW
@@ -374,13 +387,11 @@ git clone https://github.com/bccaddress/bccaddress.org
 git clone https://github.com/pointbiz/bitaddress.org
 git clone https://github.com/litecoin-project/liteaddress.org
 git clone https://github.com/JollyMort/monero-wallet-generator
-wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
-tar -xf monero-linux-x*
-rm -rf monero-linux-x*
-mv monero-x* monero-cli
 git clone https://github.com/dashpay/paper.dash.org
 cd /opt/Tools/Privacy/
 git clone https://github.com/ASeriousMister/passgen.py
+cd passgen.py
+pip3 install -r requirements.txt
 cd /opt/Tools/WalletTools
 wget --user-agent="Mozilla" https://github.com/iancoleman/bip39/releases/download/0.5.6/bip39-standalone.html
 git clone https://github.com/jlopp/xpub-converter
