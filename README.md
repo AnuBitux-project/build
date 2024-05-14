@@ -69,7 +69,6 @@ isohybrid iso_name.iso
 ```
 
 ## Disclaimer
-This script is still in development. It works but there are some little tunings to make.
 
 AnuBitux is a free project that aims to provide a secure and safe environment to use cryptocurrencies, showing some use cases and tutorials. All the tools included have been downloaded from trusted sources like official Debian repositories, GitHub and official websites.
 Although, no guarantee is provided with it. The User is always supposed to know what he's doing and how to manage sensitive information and backup himself.
