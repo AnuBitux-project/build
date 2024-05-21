@@ -60,6 +60,7 @@ apt update
 apt -y install suld-driver-4.01.17 suld-driver-common-1
 
 cd /opt/
+mkdir debs
 mkdir Tools
 cd Tools
 mkdir Privacy
@@ -73,6 +74,7 @@ mkdir HW
 cd
 
 # Downloading and placing customization files
+echo -e ${RED}Customizing AnuBitux${NC}
 mkdir prv
 cd prv
 git clone https://github.com/AnuBitux-project/custom_files
@@ -122,13 +124,17 @@ cd
 rm -rf prv
 
 # Downloading and installing debs
+echo -e ${RED}Downloading and installing .deb tools${NC}
 # Sparrow
 wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow_$SPARROW-1_amd64.deb
 sudo dpkg -i sparrow*
-rm -rf sparrow*
+wget --user-agent="Moxilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow-$SPARROW-manifest.txt.asc
+wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow-$SPARROW-manifest.txt
+mv sparrow* /opt/debs/
 
 # BitBox
 wget --user-agent="Mozilla" https://github.com/digitalbitbox/bitbox-wallet-app/releases/download/v$BITBOX/bitbox_$BITBOX2.deb
+sha256sum bitbox*
 sudo dpkg -i bitbox*
 rm -rf bitbox*
 
@@ -142,32 +148,45 @@ rm -rf kalitorify
 
 # Exodus
 wget --user-agent="Mozilla" https://downloads.exodus.com/releases/exodus-linux-x64-$EXODUS.deb
+sha256sum exodus*
+echo verify at https://downloads.exodus.com/releases/hashes-exodus-$EXODUS.txt
 sudo dpkg -i exodus*
 rm -rf exodus*
 
+
 # BitWarden
 wget --user-agent="Mozilla" https://github.com/bitwarden/clients/releases/download/desktop-v$BITWARDEN/Bitwarden-$BITWARDEN-amd64.deb
+sha256sum Bitwarden*
 sudo dpkg -i Bitwarden*
 rm -rf Bitwarden*
 
 # Atomic
 wget --user-agent="Mozilla" https://get.atomicwallet.io/download/atomicwallet-$ATOMIC.deb
+sha256sum atomicwallet*
+echo 'verify at https://releases.atomicwallet.io/download/sha256sum.txt' 
 sudo dpkg -i atomic*
 rm -rf atomic*
+wget --user-agent="Mozilla" 
 
 # VeraCrypt
 sudo apt install libwxgtk3.2-1
 wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+download/veracrypt-$VERACRYPT-Debian-12-amd64.deb
-wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Debian-12-amd64.deb
+sha256sum veracrypt-*
+echo verify at https://launchpadlibrarian.net/690089903/veracrypt-$VERACRYPT-sha256sum.txt
 sudo dpkg -i veracrypt*
 rm -rf veracrypt*
+mv veracrypt-* /opt/debs
 
 # TonKeeper
 wget --user-agent="Mozilla" https://github.com/tonkeeper/tonkeeper-web/releases/download/v$TONKEEPER/tonkeeper$TONKEEPER2.deb
+sha256sum tonkeeper*
 dpkg -i tonkeeper*
 rm -rf tonkeeper*
 
+# Guarda
 wget --user-agent="Mozilla" https://github.com/guardaco/guarda-desktop-releases/releases/download/v$GUARDA/Guarda_$GUARDA2.deb
+sha256sum Guarda_*
+echo 'verify on https://guarda.com/desktop/'
 dpkg -i Guarda*
 rm -rf Guarda*
 
@@ -189,6 +208,7 @@ cd ..
 # make pip work
 rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 
+echo -e ${RED}Installing Python tools${NC}
 #VeraDecrypt
 cd /opt/Tools/Recovery
 git clone https://github.com/AnuBitux/VeraDecrypt
@@ -313,6 +333,7 @@ chmod +x seedbf.sh
 cd
 
 # Hardware wallets setup
+echo -e ${RED}Hardware wallets set-up${NC}
 wget --user-agent="Mozilla" -q -O - https://raw.githubusercontent.com/LedgerHQ/udev-rules/master/add_udev_rules.sh | sudo bash
 python3 -m pip install trezor[hidapi]
 python3 -m pip install hidapi btchip-python ecdsa ledger-bitcoin
@@ -331,41 +352,100 @@ udevadm control --reload-rules && udevadm trigger
 
 # Appimages
 #DOWNLOAD
+echo -e ${RED}Installing wallet AppImages${NC}
 cd /opt/Tools/Wallets
+# Electrum
 wget --user-agent="Mozilla" https://download.electrum.org/$ELECTRUM/electrum-$ELECTRUM-x86_64.AppImage
+wget https://raw.githubusercontent.com/spesmilo/electrum/master/pubkeys/ThomasV.asc
+gpg --import ThomasV.asc
+wget --user-agent="Mozilla" https://download.electrum.org/$ELECTRUM/electrum-$ELECTRUM-x86_64.AppImage.asc
+gpg --verify electrum-$ELECTRUM-x86_64.AppImage.asc
+rm -rf *.asc
 mv electrum-4* electrum-btc.AppImage
+# Electron cash
 wget --user-agent="Mozilla" https://electroncash.org/downloads/$ELECTRON/win-linux/Electron-Cash-$ELECTRON-x86_64.AppImage
+sha256sum Electron-Cash*
+echo compare with SHA256.Electron-Cash-$ELECTRON-x86_64.AppImage.txt
+wget https://raw.githubusercontent.com/Electron-Cash/keys-n-hashes/master/sigs-and-sums/4.4.1/win-linux/SHA256.Electron-Cash-$ELECTRON-x86_64.AppImage.txt
+wget https://raw.githubusercontent.com/fyookball/keys-n-hashes/master/pubkeys/jonaldkey2.txt
+gpg --import jonaldkey2.txt
+rm -rf jonald*
+wget https://raw.githubusercontent.com/Electron-Cash/keys-n-hashes/master/sigs-and-sums/4.4.1/win-linux/Electron-Cash-$ELECTRON-x86_64.AppImage.asc
+gpg --verify Electron-Cash-$ELECTRON-x86_64.AppImage.asc
+rm -rf *.asc
 mv Electron-Cash-* Electron-Cash.AppImage
+# Electrum LTC
 wget --user-agent="Mozilla" https://electrum-ltc.org/download/electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage
+wget https://electrum-ltc.org/download/electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage.asc
+wget https://raw.githubusercontent.com/pooler/electrum-ltc/master/pubkeys/pooler.asc
+gpg --import pooler.asc
+gpg --verify electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage.asc
+rm -rf *.asc
 mv electrum-ltc* electrum-ltc.AppImage
+# Green
 wget --user-agent="Mozilla" https://greenupdate.blockstream.com/desktop/latest/$GREEN/BlockstreamGreen-x86_64.AppImage
+#wget https://github.com/Blockstream/green_qt/releases/download/release_$GREEN/SHA256SUMS.asc
+sha256sum Blockstream*
+echo compare on https://github.com/Blockstream/green_qt/releases/download/release_$GREEN/SHA256SUMS.asc
+# Feather
 wget --user-agent="Mozilla" https://featherwallet.org/files/releases/linux-appimage/feather-$FEATHER.AppImage
+sha256sum feather*
+wget https://featherwallet.org/files/releases/linux-appimage/feather-$FEATHER.AppImage.asc
+wget https://raw.githubusercontent.com/feather-wallet/feather/master/utils/pubkeys/featherwallet.asc
+gpg --import featherwallet.asc
+gpg --verify feather-$FEATHER.AppImage.asc
+rm -rf *.asc
 mv feather-* feather.AppImage
+# MyMonero
 wget --user-agent="Mozilla" https://github.com/mymonero/mymonero-app-js/releases/download/v$MYMONERO/MyMonero-$MYMONERO.AppImage
+sha256sum MyMonero*
+echo 'compare value on https://github.com/mymonero/mymonero-app-js/releases'
 mv MyMonero-* MyMonero.AppImage
+# MyCrypto
 wget --user-agent="Mozilla" https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/linux-x86-64_$MYCRYPTO2.AppImage
+curl https://keybase.io/tayvano/pgp_keys.asc | gpg --import
+wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/checksums.txt.gpg
+gpg --output checksums.txt --decrypt checksums.txt.gpg
 mv linux-x86-64* MyCrypto.AppImage
+rm -rf checksums.txt
+# ZecLite
 wget --user-agent="Mozilla" https://github.com/adityapk00/zecwallet-lite/releases/download/v$ZEC/Zecwallet.Lite-$ZEC.AppImage
+sha256sum Zecwallet*
 mv Zecwallet* Zecwallet.Lite.AppImage
+# Coinomi
 wget --user-agent="Mozilla" https://storage.coinomi.com/binaries/desktop/coinomi-wallet-$COINOMI-linux64.tar.gz
+sha256sum coinomi-wallet* 
+echo 'compare on https://www.coinomi.com/en/downloads/'
 tar -xf coinomi*
 rm -rf coinomi-wallet-$COINOMI-linux64.tar.gz
+# ElectrumFiro
 wget --user-agent="Mozilla" https://github.com/firoorg/electrum-firo/releases/download/$FIRO/Firo-Electrum-$FIRO-x86_64.AppImage
+sha256sum Firo-Electrum*
+echo 'compare on https://firo.org/get-firo/download/'
 mv Firo-* electrum-firo.AppImage
 chmod -R +x *
+# MoneroCLI
+echo -e ${RED}Installing Monero wallet CLI${NC}
 wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
+sha256sum monero-linux* > monero_cli_sha256.txt
+cat monero_cli_sha256.txt
+echo 'compare on https://www.getmonero.org/downloads/#cli' >> monero_cli_sha256.txt
 tar -xf monero-linux-x*
 rm -rf monero-linux-x*
 mv monero-x* monero-cli
 
 # hardware wallets clients
+echo -e ${RED}Installing hardware wallet clients${NC}
 cd HW
 wget --user-agent="Mozilla" https://download.live.ledger.com/latest/linux
+sha256sum ledget
 mv ledger* ledger-live.AppImage
 mv linux ledger-live.AppImage
 wget --user-agent="Mozilla" https://github.com/trezor/trezor-suite/releases/download/v$TREZOR/Trezor-Suite-$TREZOR-linux-x86_64.AppImage
+sha256sum Trezor-*
 mv Trezor-Suite* Trezor-Suite.AppImage
 wget --user-agent="Mozilla" https://github.com/keepkey/keepkey-desktop/releases/download/v$KEEPKEY/KeepKey-Desktop-$KEEPKEY.AppImage
+sha256sum Keep*
 mv KeepKey-D* KeepKey.AppImage
 wget --user-agent="Mozilla" https://data.trezor.io/udev/trezor-udev_2_all.deb
 wget --user-agent="Mozilla" https://dl.update.bc-vault.com/downloads/$BCVAULT.tar.gz
@@ -375,8 +455,14 @@ rm -rf setup*
 chmod -R +x *
 
 # Tor-browser
+echo -e ${RED}Installing Tor Browser${NC}
 cd /etc/skel/
 wget --user-agent="Mozilla" https://www.torproject.org/dist/torbrowser/$TORBROWSER/tor-browser-linux64-$TORBROWSER2.tar.xz
+wget --user-agent="Mozilla" https://www.torproject.org/dist/torbrowser/$TORBROWSER/tor-browser-linux64-$TORBROWSER2.tar.xz.asc
+gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+gpg --output ./tor.keyring --export 0xEF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+gpgv --keyring ./tor.keyring tor-browser-linux64-$TORBROWSER2.tar.xz.asc tor-browser-linux64-$TORBROWSER2.tar.xz
+rm -rf *.asc
 tar -xf tor-browser-linux*
 rm -rf tor-browser-linux*
 #mv tor-browser tor-browser_en-US
