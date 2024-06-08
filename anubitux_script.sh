@@ -1,35 +1,35 @@
 #!/bin/bash
 
-# Version 3.3.1 14-May-2024
+# Version 3.3.2 08-Jun-2024
 
 # VARIABLES
 SPARROW="1.9.1"
-EXODUS="24.19.4"
+EXODUS="24.23.3"
 ATOMIC="2.76.4"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
 VERACRYPT="1.26.7"
 BITBOX="4.42.0"
 BITBOX2="4.42.0_amd64"
-ELECTRUM="4.5.4"
+ELECTRUM="4.5.5"
 ELECTRON="4.4.1"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.5"
+GREEN="2.0.6"
 FEATHER="2.6.7"
 MYMONERO="1.3.2"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="24.4.3"
-KEEPKEY="3.0.13"
+TREZOR="24.5.3"
+KEEPKEY="3.0.24"
 COINOMI="1.3.0"
 TORBROWSER="13.0.15"
 TORBROWSER2="13.0.15_ALL"
-BITWARDEN="2024.4.3"
-BCVAULT="setup_2.2.0"
+BITWARDEN="2024.5.0"
+BCVAULT="setup_2.2.2"
 MONEROCLI="0.18.3.3"
 FIRO="4.1.5.3"
-TONKEEPER="3.12.6"
-TONKEEPER2="_3.12.6_amd64"
+TONKEEPER="3.14.0"
+TONKEEPER2="_3.14.0_amd64"
 GUARDA="1.0.20"
 GUARDA2="1.0.20_amd64"
 
@@ -127,6 +127,7 @@ rm -rf prv
 echo -e ${RED}Downloading and installing .deb tools${NC}
 # Sparrow
 wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow_$SPARROW-1_amd64.deb
+sha256sum sparrow_*
 sudo dpkg -i sparrow*
 wget --user-agent="Moxilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow-$SPARROW-manifest.txt.asc
 wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow-$SPARROW-manifest.txt
@@ -173,6 +174,7 @@ sudo apt install libwxgtk3.2-1
 wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+download/veracrypt-$VERACRYPT-Debian-12-amd64.deb
 sha256sum veracrypt-*
 echo verify at https://launchpadlibrarian.net/690089903/veracrypt-$VERACRYPT-sha256sum.txt
+#wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Debian-12-amd64.deb
 sudo dpkg -i veracrypt*
 rm -rf veracrypt*
 mv veracrypt-* /opt/debs
@@ -352,10 +354,11 @@ udevadm control --reload-rules && udevadm trigger
 
 # Appimages
 #DOWNLOAD
-echo -e ${RED}Installing wallet AppImages${NC}
+echo -e ${RED}Getting wallet AppImages${NC}
 cd /opt/Tools/Wallets
 # Electrum
 wget --user-agent="Mozilla" https://download.electrum.org/$ELECTRUM/electrum-$ELECTRUM-x86_64.AppImage
+sha256sum electrum-*
 wget https://raw.githubusercontent.com/spesmilo/electrum/master/pubkeys/ThomasV.asc
 gpg --import ThomasV.asc
 wget --user-agent="Mozilla" https://download.electrum.org/$ELECTRUM/electrum-$ELECTRUM-x86_64.AppImage.asc
@@ -376,6 +379,7 @@ rm -rf *.asc
 mv Electron-Cash-* Electron-Cash.AppImage
 # Electrum LTC
 wget --user-agent="Mozilla" https://electrum-ltc.org/download/electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage
+sha256sum electrum-ltc*
 wget https://electrum-ltc.org/download/electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage.asc
 wget https://raw.githubusercontent.com/pooler/electrum-ltc/master/pubkeys/pooler.asc
 gpg --import pooler.asc
@@ -403,6 +407,7 @@ echo 'compare value on https://github.com/mymonero/mymonero-app-js/releases'
 mv MyMonero-* MyMonero.AppImage
 # MyCrypto
 wget --user-agent="Mozilla" https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/linux-x86-64_$MYCRYPTO2.AppImage
+sha256sum linux-x86*
 curl https://keybase.io/tayvano/pgp_keys.asc | gpg --import
 wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/checksums.txt.gpg
 gpg --output checksums.txt --decrypt checksums.txt.gpg
@@ -438,7 +443,7 @@ mv monero-x* monero-cli
 echo -e ${RED}Installing hardware wallet clients${NC}
 cd HW
 wget --user-agent="Mozilla" https://download.live.ledger.com/latest/linux
-sha256sum ledget
+sha256sum ledger*
 mv ledger* ledger-live.AppImage
 mv linux ledger-live.AppImage
 wget --user-agent="Mozilla" https://github.com/trezor/trezor-suite/releases/download/v$TREZOR/Trezor-Suite-$TREZOR-linux-x86_64.AppImage
