@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 3.3.2 08-Jun-2024
+# Version 3.4.1 09-July-2024
 
 # VARIABLES
 SPARROW="1.9.1"
@@ -19,7 +19,7 @@ FEATHER="2.6.7"
 MYMONERO="1.3.2"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="24.6.2"
+TREZOR="24.6.3"
 KEEPKEY="3.0.26"
 COINOMI="1.3.0"
 TORBROWSER="13.5"
