@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 3.4.1 09-July-2024
+# Version 3.4.2 11-Aug-2024
 
 # VARIABLES
 SPARROW="1.9.1"
