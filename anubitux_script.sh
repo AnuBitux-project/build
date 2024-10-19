@@ -1,37 +1,38 @@
 #!/bin/bash
 
-# Version 3.4.2 11-Aug-2024
+# Version 3.4.3 9-Oct-2024
 
 # VARIABLES
-SPARROW="1.9.1"
-EXODUS="24.31.4"
+SPARROW="2.0.0"
+EXODUS="24.41.3"
 ATOMIC="2.76.4"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
-VERACRYPT="1.26.7"
-BITBOX="4.43.0"
-BITBOX2="4.43.0_amd64"
-ELECTRUM="4.5.5"
+VERACRYPT="1.26.14"
+BITBOX="4.44.1"
+BITBOX2="4.44.1_amd64"
+ELECTRUM="4.5.6"
 ELECTRON="4.4.1"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.8"
-FEATHER="2.6.7"
+GREEN="2.0.12"
+FEATHER="2.7.0"
 MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="24.7.3"
+TREZOR="24.10.1"
 KEEPKEY="3.0.26"
 COINOMI="1.3.0"
-TORBROWSER="13.5.2"
-TORBROWSER2="13.5.2_ALL"
-BITWARDEN="2024.7.1"
-BCVAULT="setup_2.2.3"
-MONEROCLI="0.18.3.3"
+TORBROWSER="13.5.7"
+TORBROWSER2="13.5.7_ALL"
+BITWARDEN="2024.10.1"
+BCVAULT="setup_2.3.3"
+MONEROCLI="0.18.3.4"
 FIRO="4.1.5.5"
-TONKEEPER="3.20.0"
-TONKEEPER2="_3.20.0_amd64"
+TONKEEPER="3.24.8"
+TONKEEPER2="_3.24.8_amd64"
 GUARDA="1.0.20"
 GUARDA2="1.0.20_amd64"
+PIRATE="1.0.10"
 
 # COLORS
 RED='\033[0;31m'
@@ -157,6 +158,13 @@ echo verify at https://downloads.exodus.com/releases/hashes-exodus-$EXODUS.txt
 sudo dpkg -i exodus*
 rm -rf exodus*
 
+# PirateWallet
+wget --user-agent="Mozilla" https://github.com/PirateNetwork/PirateWallet-Lite/releases/download/$PIRATE/linux-deb-piratewallet-lite-v$PIRATE.deb
+echo Pirate Wallet sha256sum
+sha256sum linux-deb-piratewallet-lite*
+echo 'verify at https://github.com/PirateNetwork/PirateWallet-Lite/releases'
+sudo dpkg -i linux-deb-piratewallet-lite*
+rm -rf linux-deb-piratewallet-lite*
 
 # BitWarden
 wget --user-agent="Mozilla" https://github.com/bitwarden/clients/releases/download/desktop-v$BITWARDEN/Bitwarden-$BITWARDEN-amd64.deb
@@ -172,7 +180,6 @@ sha256sum atomicwallet*
 echo 'verify at https://releases.atomicwallet.io/download/sha256sum.txt' 
 sudo dpkg -i atomic*
 rm -rf atomic*
-wget --user-agent="Mozilla" 
 
 # VeraCrypt
 sudo apt install libwxgtk3.2-1
