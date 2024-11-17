@@ -372,6 +372,10 @@ pip3 install -r requirements.txt
 deactivate
 chmod +x seedbf.sh
 
+# Bequest
+cd /opt/Tools/Privacy
+git clone https://github.com/ASeriousMister/Bequest
+
 cd
 
 # Hardware wallets setup
