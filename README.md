@@ -1,7 +1,7 @@
 # Build AnuBitux
 How we build AnuBitux and how to build it by yourself   
 More info on our [official website](https://anubitux.org/how-to-build-anubitux-by-yourself/)  
-This project is fueled with a lot of beer, if you enjoy it, please consier making a [donation](https://www.buymeacoffee.com/anubitux)  
+This project is fueled with a lot of beer, if you enjoy it, please consider making a [donation](https://www.buymeacoffee.com/anubitux)  
 Curios about who we are? [Click here](https://anubitux.org/meet-the-anubitux-project/)!  
 
 ## Prerequisites
