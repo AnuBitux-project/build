@@ -1,40 +1,40 @@
 #!/bin/bash
 
-# Version 3.5.1 24-Nov-2024
+# Version 3.5.2 25-Jan-2025
 
 # VARIABLES
 SPARROW="2.0.0"
-EXODUS="24.47.3"
-ATOMIC="2.76.4"
+EXODUS="24.51.5"
+ATOMIC="2.90.6"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
-VERACRYPT="1.26.14"
-BITBOX="4.46.2"
-BITBOX2="4.46.2_amd64"
+VERACRYPT="1.26.18"
+BITBOX="4.46.3"
+BITBOX2="4.46.3_amd64"
 ELECTRUM="4.5.8"
-ELECTRON="4.4.1"
+ELECTRON="4.4.2"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.15"
+GREEN="2.0.18"
 FEATHER="2.7.0"
 MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="24.11.2"
+TREZOR="25.1.2"
 KEEPKEY="3.0.27"
 COINOMI="1.3.0"
-TORBROWSER="14.0.2"
-TORBROWSER2="14.0.2_ALL"
-BITWARDEN="2024.11.2"
-BCVAULT="setup_2.3.4"
+TORBROWSER="14.0.4"
+TORBROWSER2="14.0.4_ALL"
+BITWARDEN="2025.1.3"
+BCVAULT="setup_2.3.5"
 MONEROCLI="0.18.3.4"
-FIRO="4.1.5.5"
-TONKEEPER="3.25.3"
-TONKEEPER2="_3.25.3_amd64"
+FIRO="4.1.5.6"
+TONKEEPER="3.27.2"
+TONKEEPER2="_3.27.2_amd64"
 GUARDA="1.0.20"
 GUARDA2="1.0.20_amd64"
 PIRATE="1.0.10"
-RAILWAY="5.19.4"
-LIANA="8.0"
+RAILWAY="5.20.2"
+LIANA="9.0"
 
 # COLORS
 RED='\033[0;31m'
@@ -50,13 +50,13 @@ apt -y --purge autoremove
 export DOTNET_CLI_TELEMETRY_OUTPUT=1
 
 # add Kali repo to download bulkextractor
-cp /etc/apt/sources.list /etc/apt/sources.list.backup
-echo deb http://http.kali.org/kali kali-rolling main contrib non-free >> /etc/apt/sources.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
-apt update
-apt -y install bulk-extractor
-cp /etc/apt/sources.list.backup /etc/apt/sources.list
-rm -rf /etc/apt/sources.list.backup
+#cp /etc/apt/sources.list /etc/apt/sources.list.backup
+#echo deb http://http.kali.org/kali kali-rolling main contrib non-free >> /etc/apt/sources.list
+#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+#apt update
+#apt -y install bulk-extractor
+#cp /etc/apt/sources.list.backup /etc/apt/sources.list
+#rm -rf /etc/apt/sources.list.backup
 echo deb http://www.bchemnet.com/suldr/ debian extra >> /etc/apt/sources.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB510D557CC3E840
 apt update
