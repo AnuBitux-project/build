@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Version 3.5.2 25-Jan-2025
+# Version 3.5.2 01-Feb-2025
 
 # VARIABLES
 SPARROW="2.0.0"
-EXODUS="24.51.5"
-ATOMIC="2.90.6"
+EXODUS="25.5.2"
+ATOMIC="2.76.4"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
 VERACRYPT="1.26.18"
@@ -14,7 +14,7 @@ BITBOX2="4.46.3_amd64"
 ELECTRUM="4.5.8"
 ELECTRON="4.4.2"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.18"
+GREEN="2.0.19"
 FEATHER="2.7.0"
 MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
