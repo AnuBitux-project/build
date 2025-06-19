@@ -1,40 +1,40 @@
 #!/bin/bash
 
-# Version 3.5.2 01-Feb-2025
+# Version 3.5.3 19-Jun-2025
 
 # VARIABLES
-SPARROW="2.0.0"
-EXODUS="25.5.2"
+SPARROW="2.2.3"
+EXODUS="25.24.2"
 ATOMIC="2.76.4"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
 VERACRYPT="1.26.18"
-BITBOX="4.46.3"
-BITBOX2="4.46.3_amd64"
+BITBOX="4.47.3"
+BITBOX2="4.47.3_amd64"
 ELECTRUM="4.5.8"
 ELECTRON="4.4.2"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.19"
-FEATHER="2.7.0"
+GREEN="2.0.25"
+FEATHER="2.8.1"
 MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="25.1.2"
+TREZOR="25.6.2"
 KEEPKEY="3.0.27"
 COINOMI="1.3.0"
-TORBROWSER="14.0.4"
-TORBROWSER2="14.0.4_ALL"
-BITWARDEN="2025.1.3"
-BCVAULT="setup_2.3.5"
-MONEROCLI="0.18.3.4"
+TORBROWSER="14.5.3"
+TORBROWSER2="14.5.3_ALL"
+BITWARDEN="2025.5.1"
+BCVAULT="setup_3.0.1"
+MONEROCLI="0.18.4.0"
 FIRO="4.1.5.6"
-TONKEEPER="3.27.2"
-TONKEEPER2="_3.27.2_amd64"
+TONKEEPER="4.0.2"
+TONKEEPER2="_4.0.2_amd64"
 GUARDA="1.0.20"
 GUARDA2="1.0.20_amd64"
-PIRATE="1.0.10"
+PIRATE="1.0.12"
 RAILWAY="5.20.2"
-LIANA="9.0"
+LIANA="11.1"
 
 # COLORS
 RED='\033[0;31m'
@@ -80,7 +80,7 @@ cd
 echo -e ${RED}Customizing AnuBitux${NC}
 mkdir prv
 cd prv
-git clone https://github.com/AnuBitux-project/custom_files
+git clone https://github.com/ASeriousMister/custom_files
 cd custom_files
 zip -FF customs.zip --out single-archive.zip -fz
 unzip single-archive.zip
