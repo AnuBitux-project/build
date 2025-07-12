@@ -1,39 +1,39 @@
 #!/bin/bash
 
-# Version 3.5.3 19-Jun-2025
+# Version 3.5.4 12-Jul-2025
 
 # VARIABLES
 SPARROW="2.2.3"
-EXODUS="25.24.2"
-ATOMIC="2.76.4"
+EXODUS="25.28.4"
+ATOMIC="2.91.13"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
-VERACRYPT="1.26.18"
+VERACRYPT="1.26.24"
 BITBOX="4.47.3"
 BITBOX2="4.47.3_amd64"
 ELECTRUM="4.5.8"
 ELECTRON="4.4.2"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.25"
+GREEN="2.0.26"
 FEATHER="2.8.1"
 MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="25.6.2"
+TREZOR="25.6.3"
 KEEPKEY="3.0.27"
 COINOMI="1.3.0"
-TORBROWSER="14.5.3"
-TORBROWSER2="14.5.3_ALL"
-BITWARDEN="2025.5.1"
-BCVAULT="setup_3.0.1"
+TORBROWSER="14.5.4"
+TORBROWSER2="14.5.4_ALL"
+BITWARDEN="2025.6.1"
+BCVAULT="setup_3.0.3"
 MONEROCLI="0.18.4.0"
 FIRO="4.1.5.6"
-TONKEEPER="4.0.2"
-TONKEEPER2="_4.0.2_amd64"
+TONKEEPER="4.1.1"
+TONKEEPER2="_4.1.1_amd64"
 GUARDA="1.0.20"
 GUARDA2="1.0.20_amd64"
 PIRATE="1.0.12"
-RAILWAY="5.20.2"
+RAILWAY="5.22.3"
 LIANA="11.1"
 
 # COLORS
@@ -129,7 +129,7 @@ rm -rf prv
 # Downloading and installing debs
 echo -e ${RED}Downloading and installing .deb tools${NC}
 # Sparrow
-wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrow_$SPARROW-1_amd64.deb
+wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrowwallet_$SPARROW-1_amd64.deb
 echo Sparrow sha256sum
 sha256sum sparrow_*
 sudo dpkg -i sparrow*
@@ -161,7 +161,7 @@ sudo dpkg -i exodus*
 rm -rf exodus*
 
 # PirateWallet
-wget --user-agent="Mozilla" https://github.com/PirateNetwork/PirateWallet-Lite/releases/download/$PIRATE/linux-deb-piratewallet-lite-v$PIRATE.deb
+wget --user-agent="Mozilla" https://github.com/PirateNetwork/PirateWallet-Lite/releases/download/$PIRATE/x86_64-linux-deb-piratewallet-lite-v$PIRATE.deb
 echo Pirate Wallet sha256sum
 sha256sum linux-deb-piratewallet-lite*
 echo 'verify at https://github.com/PirateNetwork/PirateWallet-Lite/releases'
@@ -178,7 +178,7 @@ sudo dpkg -i Bitwarden*
 rm -rf Bitwarden*
 
 # Atomic
-wget --user-agent="Mozilla" https://get.atomicwallet.io/download/atomicwallet-$ATOMIC.deb
+wget --user-agent="Mozilla" https://releases.atomicwallet.io/AtomicWallet-$ATOMIC.deb
 echo Atomic sha256sum
 sha256sum atomicwallet*
 echo 'verify at https://releases.atomicwallet.io/download/sha256sum.txt' 
@@ -219,7 +219,7 @@ dpkg -i Railway*
 rm -rf Railway*
 
 # Liana
-wget https://github.com/wizardsardine/liana/releases/download/v$LIANA/liana_$LIANA-1_amd64.deb
+wget https://github.com/wizardsardine/liana/releases/download/v$LIANA/liana-$LIANA-1_amd64.deb
 echo Liana sha256sum
 sha256sum liana*
 dpkg -i liana*
