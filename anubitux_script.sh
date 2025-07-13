@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 3.5.4 12-Jul-2025
+# Version 3.5.4 13-Jul-2025
 
 # VARIABLES
 SPARROW="2.2.3"
@@ -41,7 +41,17 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 apt update
-apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git libsecp256k1-1 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-b43-installer firmware-realtek firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer firmware-sof-signed mesa-va-drivers i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils gtkhash firmware-realtek-rtl8723cs-bt eog libwxgtk3.2-1 bash-completion obsidian-icon-theme figlet papirus-icon-theme gir1.2-gtop-2.0 system-config-printer libsecp256k1-dev zip user-setup system-config-printer simplescreenrecorder gnome-sound-recorder portaudio19-dev mpg123 terminator libsecp256k1-dev protobuf-compiler python3-qrcode software-properties-common
+apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git libsecp256k1-1 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-realtek firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-libertas firmware-netxen firmware-zd1211 firmware-sof-signed mesa-va-drivers i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils gtkhash firmware-realtek-rtl8723cs-bt eog libwxgtk3.2-1 bash-completion obsidian-icon-theme figlet papirus-icon-theme gir1.2-gtop-2.0 system-config-printer libsecp256k1-dev zip user-setup system-config-printer simplescreenrecorder gnome-sound-recorder portaudio19-dev mpg123 terminator libsecp256k1-dev protobuf-compiler python3-qrcode software-properties-common 
+
+#firmware-b43-installer firmware-b43legacy-installer 
+
+wget https://github.com/minios-linux/b43-firmware/releases/download/b43-firmware/no_net_install_bcm43xx_firmware.tar.bz2
+tar -xvf no_net*
+cd bcm43xx_firmware
+./install_*
+cd ..
+rm no_net_install*
+rm -rf bcm43*
 
 apt -y --purge remove libreoffice-math libreoffice-draw apache2-bin
 apt -y --purge autoremove
@@ -165,7 +175,7 @@ wget --user-agent="Mozilla" https://github.com/PirateNetwork/PirateWallet-Lite/r
 echo Pirate Wallet sha256sum
 sha256sum linux-deb-piratewallet-lite*
 echo 'verify at https://github.com/PirateNetwork/PirateWallet-Lite/releases'
-sudo dpkg -i linux-deb-piratewallet-lite*
+sudo dpkg -i x86_64-linux-deb-piratewallet-lite*
 rm -rf linux-deb-piratewallet-lite*
 ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
 
@@ -180,13 +190,13 @@ rm -rf Bitwarden*
 # Atomic
 wget --user-agent="Mozilla" https://releases.atomicwallet.io/AtomicWallet-$ATOMIC.deb
 echo Atomic sha256sum
-sha256sum atomicwallet*
+sha256sum AtomicWallet*
 echo 'verify at https://releases.atomicwallet.io/download/sha256sum.txt' 
-sudo dpkg -i atomic*
-rm -rf atomic*
+sudo dpkg -i Atomic*
+rm -rf Atomic*
 
 # VeraCrypt
-sudo apt install libwxgtk3.2-1
+sudo apt -y install libwxgtk3.2-1
 wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+download/veracrypt-$VERACRYPT-Debian-12-amd64.deb
 echo VeraCrypt sha256sum
 sha256sum veracrypt-*
