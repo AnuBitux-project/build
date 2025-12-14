@@ -1,40 +1,39 @@
 #!/bin/bash
 
-# Version 3.5.4 13-Jul-2025
+# Version 3.5.5 14-Dec-2025
 
 # VARIABLES
-SPARROW="2.2.3"
-EXODUS="25.28.4"
-ATOMIC="2.91.13"
-# https://get.atomicwallet.io/download/latest-debian.txt
+SPARROW="2.3.1"
+EXODUS="25.46.7"
+# ATOMIC="2.91.13"
 ZEC="1.8.8"
 VERACRYPT="1.26.24"
-BITBOX="4.47.3"
-BITBOX2="4.47.3_amd64"
-ELECTRUM="4.5.8"
+BITBOX="4.49.0"
+BITBOX2="4.49.0_amd64"
+ELECTRUM="4.6.2"
 ELECTRON="4.4.2"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.26"
+GREEN="2.0.31"
 FEATHER="2.8.1"
 MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="25.6.3"
-KEEPKEY="3.0.27"
+TREZOR="25.11.3"
+KEEPKEY="3.2.1"
 COINOMI="1.3.0"
-TORBROWSER="14.5.4"
-TORBROWSER2="14.5.4_ALL"
-BITWARDEN="2025.6.1"
-BCVAULT="setup_3.0.3"
-MONEROCLI="0.18.4.0"
+TORBROWSER="15.0.3"
+TORBROWSER2="15.0.3_ALL"
+BITWARDEN="2025.12.0"
+BCVAULT="setup_3.2.1"
+MONEROCLI="0.18.4.4"
 FIRO="4.1.5.6"
-TONKEEPER="4.1.1"
-TONKEEPER2="_4.1.1_amd64"
-GUARDA="1.0.20"
-GUARDA2="1.0.20_amd64"
+TONKEEPER="4.3.4"
+TONKEEPER2="_4.3.4_amd64"
+GUARDA="1.1.1"
+GUARDA2="1.1.1_amd64"
 PIRATE="1.0.12"
-RAILWAY="5.22.3"
-LIANA="11.1"
+RAILWAY="5.24.4"
+LIANA="13.1"
 
 # COLORS
 RED='\033[0;31m'
@@ -52,6 +51,7 @@ cd bcm43xx_firmware
 cd ..
 rm no_net_install*
 rm -rf bcm43*
+rm -rf no_net_install_bcm43*
 
 apt -y --purge remove libreoffice-math libreoffice-draw apache2-bin
 apt -y --purge autoremove
@@ -179,7 +179,6 @@ sudo dpkg -i x86_64-linux-deb-piratewallet-lite*
 rm -rf linux-deb-piratewallet-lite*
 ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
 
-
 # BitWarden
 wget --user-agent="Mozilla" https://github.com/bitwarden/clients/releases/download/desktop-v$BITWARDEN/Bitwarden-$BITWARDEN-amd64.deb
 echo Bitwarden sha256sum
@@ -188,12 +187,12 @@ sudo dpkg -i Bitwarden*
 rm -rf Bitwarden*
 
 # Atomic
-wget --user-agent="Mozilla" https://releases.atomicwallet.io/AtomicWallet-$ATOMIC.deb
-echo Atomic sha256sum
-sha256sum AtomicWallet*
-echo 'verify at https://releases.atomicwallet.io/download/sha256sum.txt' 
-sudo dpkg -i Atomic*
-rm -rf Atomic*
+# wget --user-agent="Mozilla" https://releases.atomicwallet.io/AtomicWallet-$ATOMIC.deb
+# echo Atomic sha256sum
+# sha256sum AtomicWallet*
+# echo 'verify at https://releases.atomicwallet.io/download/sha256sum.txt' 
+# sudo dpkg -i Atomic*
+# rm -rf Atomic*
 
 # VeraCrypt
 sudo apt -y install libwxgtk3.2-1
@@ -201,7 +200,6 @@ wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+do
 echo VeraCrypt sha256sum
 sha256sum veracrypt-*
 echo verify at https://launchpadlibrarian.net/690089903/veracrypt-$VERACRYPT-sha256sum.txt
-#wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Debian-12-amd64.deb
 sudo dpkg -i veracrypt*
 rm -rf veracrypt*
 mv veracrypt-* /opt/debs
@@ -222,7 +220,7 @@ dpkg -i Guarda*
 rm -rf Guarda*
 
 # Railway
-wget https://github.com/Railway-Wallet/Railway-Wallet/releases/download/v$RAILWAY/Railway.linux.amd64.deb
+wget https://github.com/Railway-Wallet/Railway-Wallet/releases/download/$RAILWAY/Railway.linux.amd64.deb
 echo Railway sha256sum
 sha256sum Railway*
 dpkg -i Railway*
@@ -234,6 +232,9 @@ echo Liana sha256sum
 sha256sum liana*
 dpkg -i liana*
 rm -rf liana*
+
+# Brave
+curl -fsS https://dl.brave.com/install.sh | sh
 
 # Just in case something went wrong
 apt --fix-broken install
@@ -252,6 +253,7 @@ mkdir HW
 cd ..
 # make pip work
 rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+rm /usr/lib/python3.12/EXTERNALLY-MANAGED
 
 echo -e ${RED}Installing Python tools${NC}
 #VeraDecrypt
@@ -514,7 +516,7 @@ echo Ledger Live sha256sum
 sha256sum ledger*
 mv ledger* ledger-live.AppImage
 mv linux ledger-live.AppImage
-wget --user-agent="Mozilla" https://github.com/trezor/trezor-suite/releases/download/v$TREZOR/Trezor-Suite-$TREZOR-linux-x86_64.AppImage
+wget --user-agent="Mozilla" https://data.trezor.io/suite/releases/desktop/latest/Trezor-Suite-$TREZOR-linux-x86_64.AppImage
 echo Trezor Suite sha256sum
 sha256sum Trezor-*
 mv Trezor-Suite* Trezor-Suite.AppImage
@@ -573,6 +575,9 @@ cd scripts
 chmod -R +x *
 cd
 
+# Making tools working properly
+chmod -R 777 /opt/*
+
 # Updating initram for new files placed in /usr/share/
 update-initramfs -u
 
@@ -590,9 +595,6 @@ rm -rf /usr/share/plymouth/themes/lines
 rm -rf /usr/share/plymouth/themes/moonlight
 rm -rf /usr/share/plymouth/themes/softwaves
 rm -rf /usr/share/plymouth/themes/spacefun
-
-# Making tools working properly
-chmod -R 777 /opt/*
 
 # Starting the bulding process
 echo -e remember to update ${RED}/opt/scripts/Info.sh${NC}
