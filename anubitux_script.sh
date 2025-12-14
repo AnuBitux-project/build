@@ -67,6 +67,9 @@ export DOTNET_CLI_TELEMETRY_OUTPUT=1
 #apt -y install bulk-extractor
 #cp /etc/apt/sources.list.backup /etc/apt/sources.list
 #rm -rf /etc/apt/sources.list.backup
+wget https://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_4_all.deb
+dpkg -i suldr-keyring_4_all.deb
+rm suldr-keyring_4_all.deb
 echo deb http://www.bchemnet.com/suldr/ debian extra >> /etc/apt/sources.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB510D557CC3E840
 apt update
@@ -212,7 +215,7 @@ dpkg -i tonkeeper*
 rm -rf tonkeeper*
 
 # Guarda
-wget --user-agent="Mozilla" https://github.com/guardaco/guarda-desktop-releases/releases/download/v$GUARDA/Guarda_$GUARDA2.deb
+wget --user-agent="Mozilla" https://github.com/guardaco/guarda-desktop-releases/releases/download/v$GUARDA/Guarda_$GUARDA.deb
 echo Guarda sha256sum
 sha256sum Guarda_*
 echo 'verify on https://guarda.com/desktop/'
@@ -220,7 +223,7 @@ dpkg -i Guarda*
 rm -rf Guarda*
 
 # Railway
-wget https://github.com/Railway-Wallet/Railway-Wallet/releases/download/$RAILWAY/Railway.linux.amd64.deb
+wget https://github.com/Railway-Wallet/Railway-Wallet/releases/download/v$RAILWAY/Railway.linux.amd64.deb
 echo Railway sha256sum
 sha256sum Railway*
 dpkg -i Railway*
@@ -235,6 +238,8 @@ rm -rf liana*
 
 # Brave
 curl -fsS https://dl.brave.com/install.sh | sh
+apt update
+apt install brave-browser
 
 # Just in case something went wrong
 apt --fix-broken install
