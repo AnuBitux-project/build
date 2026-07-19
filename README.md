@@ -26,6 +26,18 @@ If you want to able to install it, use this parameters, but consideer that AnuBi
 ```
 lb config -b iso -d bookworm --cache true --apt-recommends true -a amd64 --binary-images iso --debian-installer live --linux-flavours amd64 --mode debian --debian-installer-gui true --archive-areas "main contrib non-free non-free-firmware" --security true --win32-loader false --interactive shell --updates true --iso-application anubitux --iso-publisher https://anubitux.org --iso-volume anubitux --memtest none --bootappend-live "boot=live config hostname=AnuBitux username=anubitux"
 ```
+Download and unzip custom files in any temporary folder
+```
+git clone https://github.com/ASeriousMister/custom_files
+```
+Move the files to the distro folder
+```
+mv /folder with unzipped directories (etc, usr, opt) $HOME/distro/config/includes.chroot_after_packages/
+```
+Move into the distro folder again
+```
+cd distro
+```
 Obtain root privileges
 ```
 sudo -s
