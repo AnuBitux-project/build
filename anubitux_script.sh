@@ -1,46 +1,45 @@
 #!/bin/bash
 
-# Version 3.5.5 14-Dec-2025
+# Version 3.5.6 19-Jul-2026
 
 # VARIABLES
-SPARROW="2.3.1"
-EXODUS="25.46.7"
+SPARROW="2.5.2"
+EXODUS="26.7.1"
 # ATOMIC="2.91.13"
-ZEC="1.8.8"
-VERACRYPT="1.26.24"
-BITBOX="4.49.0"
-BITBOX2="4.49.0_amd64"
-ELECTRUM="4.6.2"
-ELECTRON="4.4.2"
+# ZEC="1.8.8" SUNSET
+VERACRYPT="1.26.29"
+BITBOX="4.51.3"
+BITBOX2="4.51.3_amd64"
+ELECTRUM="4.8.0"
+ELECTRON="4.4.5"
 ELECTRUM_LTC="4.2.2.1"
-GREEN="2.0.31"
+GREEN="3.4.1"
 FEATHER="2.8.1"
-MYMONERO="1.3.3"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="25.11.3"
-KEEPKEY="3.2.1"
+TREZOR="26.6.1"
+KEEPKEY="1.4.10"
 COINOMI="1.3.0"
-TORBROWSER="15.0.3"
-TORBROWSER2="15.0.3_ALL"
-BITWARDEN="2025.12.0"
-BCVAULT="setup_3.2.1"
-MONEROCLI="0.18.4.4"
-FIRO="4.1.5.6"
-TONKEEPER="4.3.4"
-TONKEEPER2="_4.3.4_amd64"
+TORBROWSER="15.0.18"
+TORBROWSER2="15.0.18_ALL"
+BITWARDEN="2026.6.1"
+BCVAULT="setup_3.3.2"
+MONEROCLI="0.18.5.1"
+FIRO="4.1.5.7"
+TONKEEPER="26.6.1"
+TONKEEPER2="_26.6.1_amd64"
 GUARDA="1.1.1"
 GUARDA2="1.1.1_amd64"
 PIRATE="1.0.12"
-RAILWAY="5.24.4"
-LIANA="13.1"
+RAILWAY="5.24.21"
+LIANA="14.0"
 
 # COLORS
 RED='\033[0;31m'
 NC='\033[0m'
 
 apt update
-apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git libsecp256k1-1 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-realtek firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-libertas firmware-netxen firmware-zd1211 firmware-sof-signed mesa-va-drivers i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils gtkhash firmware-realtek-rtl8723cs-bt eog libwxgtk3.2-1 bash-completion obsidian-icon-theme figlet papirus-icon-theme gir1.2-gtop-2.0 system-config-printer libsecp256k1-dev zip user-setup system-config-printer simplescreenrecorder gnome-sound-recorder portaudio19-dev mpg123 terminator libsecp256k1-dev protobuf-compiler python3-qrcode software-properties-common 
+apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc firefox-esr ntfs-3g exfat-fuse wkhtmltopdf evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git libsecp256k1-1 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-realtek firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-libertas firmware-netxen firmware-zd1211 firmware-sof-signed mesa-va-drivers i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils gtkhash firmware-realtek-rtl8723cs-bt eog libwxgtk3.2-1 bash-completion obsidian-icon-theme figlet papirus-icon-theme gir1.2-gtop-2.0 system-config-printer libsecp256k1-dev zip user-setup system-config-printer simplescreenrecorder gnome-sound-recorder portaudio19-dev mpg123 terminator libsecp256k1-dev protobuf-compiler python3-qrcode software-properties-common 
 
 #firmware-b43-installer firmware-b43legacy-installer 
 
@@ -67,11 +66,13 @@ export DOTNET_CLI_TELEMETRY_OUTPUT=1
 #apt -y install bulk-extractor
 #cp /etc/apt/sources.list.backup /etc/apt/sources.list
 #rm -rf /etc/apt/sources.list.backup
-wget https://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_4_all.deb
-dpkg -i suldr-keyring_4_all.deb
-rm suldr-keyring_4_all.deb
-echo deb http://www.bchemnet.com/suldr/ debian extra >> /etc/apt/sources.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB510D557CC3E840
+#wget https://www.bchemnet.com/suldr/pool/debian/extra/su/suldr-keyring_4_all.deb
+#dpkg -i suldr-keyring_4_all.deb
+#rm suldr-keyring_4_all.deb
+bash -c 'echo "deb http://www.bchemnet.com/suldr/ debian extra" >> /etc/apt/sources.list'
+wget -O - http://www.bchemnet.com/suldr/suldr.gpg | sudo gpg --dearmor -o /usr/share/keyrings/suldr-keyring.gpg
+# echo deb http://www.bchemnet.com/suldr/ debian extra >> /etc/apt/sources.list
+# apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FB510D557CC3E840
 apt update
 apt -y install suld-driver-4.01.17 suld-driver-common-1
 
@@ -91,57 +92,60 @@ cd
 
 # Downloading and placing customization files
 echo -e ${RED}Customizing AnuBitux${NC}
-mkdir prv
-cd prv
-git clone https://github.com/ASeriousMister/custom_files
-cd custom_files
-zip -FF customs.zip --out single-archive.zip -fz
-unzip single-archive.zip
-cd home/anubitux/temp_git
-cd etc
-cd lightdm
-cp -r -p * /etc/lightdm/
-cd ..
-cd skel
-cp -r -p Desktop /etc/skel/
-chmod +x /etc/skel/Desktop/*
-cp -r -p Documents /etc/skel/
-cp -r -p Downloads /etc/skel/
-cp -r -p Music /etc/skel/
-cp -r -p Pictures/ /etc/skel/
-cp -r -p Templates /etc/skel/
-cp -r -p Videos /etc/skel/
-cp -r -p .idlerc/ /etc/skel/
-cp -r -p .config /etc/skel/
-cp -r -p .local /etc/skel/
-cp -r -p .mozilla /etc/skel/
-cp .bashrc /etc/skel/
-cp .face /etc/skel/
-cp .profile /etc/skel/
+# mkdir prv
+# cd prv
+# git clone https://github.com/ASeriousMister/custom_files
+# cd custom_files
+# zip -FF customs.zip --out single-archive.zip -fz
+# unzip single-archive.zip
+# cd home/anubitux/temp_git
+# cd etc
+# cd lightdm
+# cp -r -p * /etc/lightdm/
+# cd ..
+# cd skel
+# cp -r -p Desktop /etc/skel/
+# chmod +x /etc/skel/Desktop/*
+# cp -r -p Documents /etc/skel/
+# cp -r -p Downloads /etc/skel/
+# cp -r -p Music /etc/skel/
+# cp -r -p Pictures/ /etc/skel/
+# cp -r -p Templates /etc/skel/
+# cp -r -p Videos /etc/skel/
+# cp -r -p .idlerc/ /etc/skel/
+# cp -r -p .config /etc/skel/
+# cp -r -p .local /etc/skel/
+# cp -r -p .mozilla /etc/skel/
+# cp .bashrc /etc/skel/
+# cp .face /etc/skel/
+# cp .profile /etc/skel/
 #cp -r -p * /etc/skel/
-cd ..
-cd ssl
-cp -r -p * /etc/ssl/
-cd ../..
-cp -r -p opt/* /opt/
-cd usr
-cd share
-cd backgrounds
-cp -r -p AnuBitux_WP /usr/share/backgrounds/
-cd ../desktop-base/
-cp -r -p * /usr/share/desktop-base/
-cd ../icons/
-cp -r -p custom_icons /usr/share/icons/
-cd ../plymouth/
-cp -r -p * /usr/share/plymouth/
-cd
-chmod +x /etc/skel/Desktop/*
-cd
-rm -rf prv
+# cd ..
+# cd ssl
+# cp -r -p * /etc/ssl/
+# cd ../..
+# cp -r -p opt/* /opt/
+# cd usr
+# cd share
+# cd backgrounds
+# cp -r -p AnuBitux_WP /usr/share/backgrounds/
+# cd ../desktop-base/
+# cp -r -p * /usr/share/desktop-base/
+# cd ../icons/
+# cp -r -p custom_icons /usr/share/icons/
+# cd ../plymouth/
+# cp -r -p * /usr/share/plymouth/
+# cd
+# chmod +x /etc/skel/Desktop/*
+# cd
+# rm -rf prv
 
 # Downloading and installing debs
 echo -e ${RED}Downloading and installing .deb tools${NC}
+echo -e ' '
+echo -e ' '
 # Sparrow
+echo -e ${RED}Sparrow${NC}
 wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/download/$SPARROW/sparrowwallet_$SPARROW-1_amd64.deb
 echo Sparrow sha256sum
 sha256sum sparrow_*
@@ -151,6 +155,7 @@ wget --user-agent="Mozilla" https://github.com/sparrowwallet/sparrow/releases/do
 mv sparrow* /opt/debs/
 
 # BitBox
+echo -e ${RED}BitBox${NC}
 wget --user-agent="Mozilla" https://github.com/digitalbitbox/bitbox-wallet-app/releases/download/v$BITBOX/bitbox_$BITBOX2.deb
 echo BitBox sha256sum
 sha256sum bitbox*
@@ -158,6 +163,7 @@ sudo dpkg -i bitbox*
 rm -rf bitbox*
 
 # Kalitorify
+echo -e ${RED}KaliTorify${NC}
 systemctl enable ufw
 git clone https://github.com/brainfucksec/kalitorify
 cd kalitorify
@@ -166,6 +172,7 @@ cd ..
 rm -rf kalitorify
 
 # Exodus
+echo -e ${RED}Exodus${NC}
 wget --user-agent="Mozilla" https://downloads.exodus.com/releases/exodus-linux-x64-$EXODUS.deb
 echo Exodus sha256sum
 sha256sum exodus*
@@ -174,6 +181,7 @@ sudo dpkg -i exodus*
 rm -rf exodus*
 
 # PirateWallet
+echo -e ${RED}PirateWallet${NC}
 wget --user-agent="Mozilla" https://github.com/PirateNetwork/PirateWallet-Lite/releases/download/$PIRATE/x86_64-linux-deb-piratewallet-lite-v$PIRATE.deb
 echo Pirate Wallet sha256sum
 sha256sum linux-deb-piratewallet-lite*
@@ -183,6 +191,7 @@ rm -rf linux-deb-piratewallet-lite*
 ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
 
 # BitWarden
+echo -e ${RED}BitWarden${NC}
 wget --user-agent="Mozilla" https://github.com/bitwarden/clients/releases/download/desktop-v$BITWARDEN/Bitwarden-$BITWARDEN-amd64.deb
 echo Bitwarden sha256sum
 sha256sum Bitwarden*
@@ -198,6 +207,7 @@ rm -rf Bitwarden*
 # rm -rf Atomic*
 
 # VeraCrypt
+echo -e ${RED}VeraCrypt${NC}
 sudo apt -y install libwxgtk3.2-1
 wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+download/veracrypt-$VERACRYPT-Debian-12-amd64.deb
 echo VeraCrypt sha256sum
@@ -208,6 +218,7 @@ rm -rf veracrypt*
 mv veracrypt-* /opt/debs
 
 # TonKeeper
+echo -e ${RED}TonKeeperPro${NC}
 wget --user-agent="Mozilla" https://github.com/tonkeeper/tonkeeper-web/releases/download/v$TONKEEPER/tonkeeper$TONKEEPER2.deb
 echo TonKeeper sha256sum
 sha256sum tonkeeper*
@@ -215,6 +226,7 @@ dpkg -i tonkeeper*
 rm -rf tonkeeper*
 
 # Guarda
+echo -e ${RED}Guarda${NC}
 wget --user-agent="Mozilla" https://github.com/guardaco/guarda-desktop-releases/releases/download/v$GUARDA/Guarda_$GUARDA.deb
 echo Guarda sha256sum
 sha256sum Guarda_*
@@ -223,6 +235,7 @@ dpkg -i Guarda*
 rm -rf Guarda*
 
 # Railway
+echo -e ${RED}RailWay${NC}
 wget https://github.com/Railway-Wallet/Railway-Wallet/releases/download/v$RAILWAY/Railway.linux.amd64.deb
 echo Railway sha256sum
 sha256sum Railway*
@@ -230,6 +243,7 @@ dpkg -i Railway*
 rm -rf Railway*
 
 # Liana
+echo -e ${RED}Liana${NC}
 wget https://github.com/wizardsardine/liana/releases/download/v$LIANA/liana-$LIANA-1_amd64.deb
 echo Liana sha256sum
 sha256sum liana*
@@ -237,6 +251,7 @@ dpkg -i liana*
 rm -rf liana*
 
 # Brave
+echo -e ${RED}Brave${NC}
 curl -fsS https://dl.brave.com/install.sh | sh
 apt update
 apt install brave-browser
@@ -418,8 +433,11 @@ udevadm control --reload-rules && udevadm trigger
 # Appimages
 #DOWNLOAD
 echo -e ${RED}Getting wallet AppImages${NC}
+echo -e ' '
+echo -e ' '
 cd /opt/Tools/Wallets
 # Electrum
+echo -e ${RED}Electrum${NC}
 wget --user-agent="Mozilla" https://download.electrum.org/$ELECTRUM/electrum-$ELECTRUM-x86_64.AppImage
 echo Electrum sha256sum
 sha256sum electrum-*
@@ -430,6 +448,7 @@ gpg --verify electrum-$ELECTRUM-x86_64.AppImage.asc
 rm -rf *.asc
 mv electrum-4* electrum-btc.AppImage
 # Electron cash
+echo -e ${RED}Electron Cash${NC}
 wget --user-agent="Mozilla" https://electroncash.org/downloads/$ELECTRON/win-linux/Electron-Cash-$ELECTRON-x86_64.AppImage
 echo Electron Cash sha256sum
 sha256sum Electron-Cash*
@@ -443,6 +462,7 @@ gpg --verify Electron-Cash-$ELECTRON-x86_64.AppImage.asc
 rm -rf *.asc
 mv Electron-Cash-* Electron-Cash.AppImage
 # Electrum LTC
+echo -e ${RED}ElectrumLTC${NC}
 wget --user-agent="Mozilla" https://electrum-ltc.org/download/electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage
 echo Electrum LTC sha256sum
 sha256sum electrum-ltc*
@@ -453,12 +473,14 @@ gpg --verify electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage.asc
 rm -rf *.asc
 mv electrum-ltc* electrum-ltc.AppImage
 # Green
-wget --user-agent="Mozilla" https://greenupdate.blockstream.com/desktop/latest/$GREEN/BlockstreamGreen-x86_64.AppImage
+echo -e ${RED}GreenWallet${NC}
+wget --user-agent="Mozilla" https://greenupdate.blockstream.com/desktop/latest/$GREEN/Blockstream-x86_64.AppImage
 #wget https://github.com/Blockstream/green_qt/releases/download/release_$GREEN/SHA256SUMS.asc
 echo BlockstreamGreen sha256sum 
 sha256sum Blockstream*
 echo compare on https://github.com/Blockstream/green_qt/releases/download/release_$GREEN/SHA256SUMS.asc
 # Feather
+echo -e ${RED}FeatherWallet${NC}
 wget --user-agent="Mozilla" https://featherwallet.org/files/releases/linux-appimage/feather-$FEATHER.AppImage
 echo Feather sha256sum
 sha256sum feather*
@@ -468,13 +490,8 @@ gpg --import featherwallet.asc
 gpg --verify feather-$FEATHER.AppImage.asc
 rm -rf *.asc
 mv feather-* feather.AppImage
-# MyMonero
-wget --user-agent="Mozilla" https://github.com/mymonero/mymonero-app-js/releases/download/v$MYMONERO/MyMonero-$MYMONERO.AppImage
-echo MyMonero sha256sum
-sha256sum MyMonero*
-echo 'compare value on https://github.com/mymonero/mymonero-app-js/releases'
-mv MyMonero-* MyMonero.AppImage
 # MyCrypto
+echo -e ${RED}MyCrypto${NC}
 wget --user-agent="Mozilla" https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/linux-x86-64_$MYCRYPTO2.AppImage
 echo MyCrypto sha256sum
 sha256sum linux-x86*
@@ -483,12 +500,8 @@ wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/checksum
 gpg --output checksums.txt --decrypt checksums.txt.gpg
 mv linux-x86-64* MyCrypto.AppImage
 rm -rf checksums.txt
-# ZecLite
-wget --user-agent="Mozilla" https://github.com/adityapk00/zecwallet-lite/releases/download/v$ZEC/Zecwallet.Lite-$ZEC.AppImage
-echo ZecLite sha256sum
-sha256sum Zecwallet*
-mv Zecwallet* Zecwallet.Lite.AppImage
 # Coinomi
+echo -e ${RED}Coinomi${NC}
 wget --user-agent="Mozilla" https://storage.coinomi.com/binaries/desktop/coinomi-wallet-$COINOMI-linux64.tar.gz
 echo Coinomi sha256sum
 sha256sum coinomi-wallet* 
@@ -496,6 +509,7 @@ echo 'compare on https://www.coinomi.com/en/downloads/'
 tar -xf coinomi*
 rm -rf coinomi-wallet-$COINOMI-linux64.tar.gz
 # ElectrumFiro
+echo -e ${RED}ElectrumFiro${NC}
 wget --user-agent="Mozilla" https://github.com/firoorg/electrum-firo/releases/download/$FIRO/Firo-Electrum-$FIRO-x86_64.AppImage
 echo Electrum Firo sha256sum
 sha256sum Firo-Electrum*
@@ -503,6 +517,7 @@ echo 'compare on https://firo.org/get-firo/download/'
 mv Firo-* electrum-firo.AppImage
 chmod -R +x *
 # MoneroCLI
+echo -e ${RED}MoneroCLI${NC}
 echo -e ${RED}Installing Monero wallet CLI${NC}
 wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
 echo Monero CLI sha256sum
@@ -525,7 +540,7 @@ wget --user-agent="Mozilla" https://data.trezor.io/suite/releases/desktop/latest
 echo Trezor Suite sha256sum
 sha256sum Trezor-*
 mv Trezor-Suite* Trezor-Suite.AppImage
-wget --user-agent="Mozilla" https://github.com/keepkey/keepkey-desktop/releases/download/v$KEEPKEY/KeepKey-Desktop-$KEEPKEY.AppImage
+wget --user-agent="Mozilla" https://github.com/keepkey/keepkey-vault/releases/download/v$KEEPKEY/KeepKey-Vault-x86_64.AppImage
 echo KeepKey sha256sum
 sha256sum Keep*
 mv KeepKey-D* KeepKey.AppImage
@@ -550,6 +565,7 @@ rm -rf tor-browser-linux*
 #mv tor-browser tor-browser_en-US
 
 # Other tools
+echo -e ${RED}AdditionalTools${NC}
 cd /opt/Tools/WalletGen/
 git clone https://github.com/bccaddress/bccaddress.org
 git clone https://github.com/pointbiz/bitaddress.org
